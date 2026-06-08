@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      FashionStore
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2>Iniciar Sesión</h2>
+
+  <ion-item>
+    <ion-label position="stacked">
+      Usuario
+    </ion-label>
+
+    <ion-input
+      [(ngModel)]="usuario">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">
+      Contraseña
+    </ion-label>
+
+    <ion-input
+      type="password"
+      [(ngModel)]="password">
+    </ion-input>
+  </ion-item>
+
+  <br>
+
+  <ion-button
+    expand="block"
+    (click)="ingresar()">
+
+    Ingresar
+
+  </ion-button>
+
+</ion-content>
