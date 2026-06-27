@@ -1,0 +1,117 @@
+ion-content{
+
+    --background:#F7F7F7;
+
+}
+
+/* Toolbar */
+
+.toolbar-perfil{
+
+    --background:#D88CA1;
+    color:white;
+
+}
+
+/* Encabezado */
+
+.header-perfil{
+
+    background:linear-gradient(
+        135deg,
+        #D88CA1,
+        #F8DDE5);
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    border-bottom-left-radius:35px;
+
+    border-bottom-right-radius:35px;
+
+    color:white;
+
+}
+
+/* Avatar */
+
+.avatar{
+
+    font-size:120px;
+
+    color:white;
+
+}
+
+.foto-perfil{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid white;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+}
+
+.header-perfil h2{
+
+    margin-top:15px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.header-perfil p{
+
+    opacity:.9;
+
+}
+
+/* Cards */
+
+.card-perfil{
+
+    margin:20px;
+
+    border-radius:22px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+/* Botón principal */
+
+.btn-foto{
+
+    --background:#D88CA1;
+
+    --border-radius:15px;
+
+    margin-bottom:15px;
+
+}
+
+/* Items */
+
+ion-item{
+
+    --background:transparent;
+
+    margin-bottom:10px;
+
+}
+
+ion-icon{
+
+    color:#D88CA1;
+
+}

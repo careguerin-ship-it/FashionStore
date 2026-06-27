@@ -1,44 +1,92 @@
 <ion-header>
-  <ion-toolbar color="primary">
+
+  <ion-toolbar class="toolbar-login">
+
     <ion-title>
+
       FashionStore
+
     </ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true">
 
-  <h2>Iniciar Sesión</h2>
+  <div class="login-container">
 
-  <ion-item>
-    <ion-label position="stacked">
-      Usuario
-    </ion-label>
+    <ion-icon
+      name="bag-handle"
+      class="logo">
+    </ion-icon>
 
-    <ion-input
-      [(ngModel)]="usuario">
-    </ion-input>
-  </ion-item>
+    <h1>Bienvenido</h1>
 
-  <ion-item>
-    <ion-label position="stacked">
-      Contraseña
-    </ion-label>
+    <p>
 
-    <ion-input
-      type="password"
-      [(ngModel)]="password">
-    </ion-input>
-  </ion-item>
+      Inicia sesión para continuar
 
-  <br>
+    </p>
 
-  <ion-button
-    expand="block"
-    (click)="ingresar()">
+    <ion-card>
 
-    Ingresar
+      <ion-card-content>
 
-  </ion-button>
+        <ion-item>
+
+          <ion-icon
+            slot="start"
+            name="mail-outline">
+          </ion-icon>
+
+          <ion-input
+
+            type="email"
+
+            placeholder="Correo electrónico"
+
+            [(ngModel)]="usuario">
+
+          </ion-input>
+
+        </ion-item>
+
+        <ion-item>
+
+          <ion-icon
+            slot="start"
+            name="lock-closed-outline">
+          </ion-icon>
+
+          <ion-input
+
+            type="password"
+
+            placeholder="Contraseña"
+
+            [(ngModel)]="password">
+
+          </ion-input>
+
+        </ion-item>
+
+        <ion-button
+
+          expand="block"
+
+          class="btn-login"
+
+          (click)="ingresar()">
+
+          Ingresar
+
+        </ion-button>
+
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
 
 </ion-content>

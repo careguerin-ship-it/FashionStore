@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,22 +13,61 @@ export class LoginPage {
   usuario = '';
   password = '';
 
-  constructor(private router: Router) {}
+ constructor(
+  private router: Router,
+  private authService: AuthService
+) {}
 
-  ingresar() {
+async ingresar() {
 
-    if (
-      this.usuario === '' ||
-      this.password === ''
-    ) {
+  // Usuario obligatorio
 
-      alert('Debe completar todos los campos');
-      return;
+  if (this.usuario.trim() === '') {
 
-    }
+    alert('Debe ingresar un correo electrónico.');
 
-    this.router.navigate(['/home']);
+    return;
 
   }
+
+  // Validar formato de correo
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(this.usuario)) {
+
+    alert('Ingrese un correo electrónico válido.');
+
+    return;
+
+  }
+
+  // Contraseña obligatoria
+
+  if (this.password.trim() === '') {
+
+    alert('Debe ingresar una contraseña.');
+
+    return;
+
+  }
+
+  // Largo mínimo
+
+  if (this.password.length < 6) {
+
+    alert('La contraseña debe tener al menos 6 caracteres.');
+
+    return;
+
+  }
+
+  // Login
+
+  await this.authService.login();
+
+  this.router.navigate(['/home']);
+
+}
 
 }

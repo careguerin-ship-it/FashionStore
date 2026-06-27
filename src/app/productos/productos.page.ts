@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { DbtaskService } from '../services/dbtask.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos',
@@ -6,30 +9,56 @@ import { Component } from '@angular/core';
   styleUrls: ['./productos.page.scss'],
   standalone: false
 })
-export class ProductosPage {
+export class ProductosPage implements OnInit {
 
+  productos: any[] = [];
 
-  productos = [
-  {
-    nombre: 'Polera Deportiva',
-    precio: 19990,
-    imagen: 'assets/images/polera.jpg'
-  },
-  {
-    nombre: 'Jeans Mujer',
-    precio: 29990,
-    imagen: 'assets/images/jeans.jpg'
-  },
-  {
-    nombre: 'Zapatillas Urbanas',
-    precio: 49990,
-    imagen: 'assets/images/zapatillas.jpg'
-  },
-  {
-    nombre: 'Zapatos Formales',
-    precio: 59990,
-    imagen: 'assets/images/zapatos.jpg'
+ constructor(
+  private apiService: ApiService,
+  private db: DbtaskService,
+  private router: Router
+) { }
+
+  ngOnInit() {
+    this.cargarProductos();
   }
-];
 
+  cargarProductos() {
+
+  this.apiService.getProductos().subscribe({
+
+    next: async (data) => {
+
+      console.log("Productos obtenidos desde API");
+
+      this.productos = data;
+
+      // Guardar en Storage
+      await this.db.guardarProductos(data);
+
+    },
+
+    error: async (error) => {
+
+      console.log("No hay Internet. Cargando productos guardados.");
+
+      this.productos =
+        await this.db.obtenerProductosGuardados();
+
+    }
+
+  });
+
+}
+
+  async agregarCarrito(producto: any) {
+
+  await this.db.agregarCarrito(producto);
+
+  alert('Producto agregado al carrito');
+
+}
+irCarrito() {
+  this.router.navigate(['/carrito']);
+}
 }

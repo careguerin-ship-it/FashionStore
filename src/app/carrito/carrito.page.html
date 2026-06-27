@@ -1,31 +1,193 @@
 <ion-header>
-  <ion-toolbar color="success">
-    <ion-title>Mi Carrito</ion-title>
+
+  <ion-toolbar class="toolbar-carrito">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      🛒 Mi Carrito
+    </ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-list>
+  <!-- Carrito vacío -->
 
-    <ion-item>
-      <ion-label>
-        Polera Deportiva
-      </ion-label>
-    </ion-item>
+  <div
+    *ngIf="carrito.length == 0"
+    class="carrito-vacio">
 
-    <ion-item>
-      <ion-label>
-        Zapatillas Urbanas
-      </ion-label>
-    </ion-item>
+    <ion-icon
+      name="cart-outline"
+      class="icono-vacio">
+    </ion-icon>
 
-  </ion-list>
+    <h2>Tu carrito está vacío</h2>
 
-  <h2>Total: ${{ total }}</h2>
+    <p>
+      Agrega productos para comenzar tu compra.
+    </p>
 
-  <ion-button expand="block">
-    Finalizar Compra
-  </ion-button>
+    <ion-button
+      class="btn-seguir"
+      routerLink="/productos">
+
+      <ion-icon
+        slot="start"
+        name="bag-outline">
+      </ion-icon>
+
+      Ver Productos
+
+    </ion-button>
+
+  </div>
+
+  <!-- Productos -->
+
+  <ion-card
+    class="producto-card"
+    *ngFor="let producto of carrito; let i = index">
+
+    <ion-grid>
+
+      <ion-row class="ion-align-items-center">
+
+        <ion-col size="4">
+
+          <img
+            [src]="producto.image"
+            class="imagen-producto">
+
+        </ion-col>
+
+        <ion-col size="8">
+
+          <h2 class="titulo">
+
+            {{ producto.title }}
+
+          </h2>
+
+          <p class="categoria">
+
+            {{ producto.category }}
+
+          </p>
+
+          <h3 class="precio">
+
+            ${{ producto.price }}
+
+          </h3>
+
+          <ion-button
+
+            color="danger"
+
+            fill="outline"
+
+            size="small"
+
+            (click)="eliminarProducto(i)">
+
+            <ion-icon
+              slot="start"
+              name="trash-outline">
+            </ion-icon>
+
+            Eliminar
+
+          </ion-button>
+
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+  </ion-card>
+
+  <!-- Resumen -->
+
+  <ion-card
+    class="resumen"
+    *ngIf="carrito.length > 0">
+
+    <ion-card-header>
+
+      <ion-card-title>
+
+        Resumen de compra
+
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <div class="fila-total">
+
+        <span>Total</span>
+
+        <strong>
+
+          ${{ total.toFixed(2) }}
+
+        </strong>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- Botones -->
+
+  <div
+    *ngIf="carrito.length > 0">
+
+    <ion-button
+
+      expand="block"
+
+      class="btn-comprar"
+
+      (click)="finalizarCompra()">
+
+      <ion-icon
+        slot="start"
+        name="card-outline">
+      </ion-icon>
+
+      Finalizar Compra
+
+    </ion-button>
+
+    <ion-button
+
+      expand="block"
+
+      fill="outline"
+
+      color="medium"
+
+      (click)="vaciarCarrito()">
+
+      <ion-icon
+        slot="start"
+        name="trash-outline">
+      </ion-icon>
+
+      Vaciar carrito
+
+    </ion-button>
+
+  </div>
 
 </ion-content>

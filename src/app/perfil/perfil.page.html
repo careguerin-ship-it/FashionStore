@@ -1,23 +1,165 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
-    <ion-title>Mi Perfil</ion-title>
+
+  <ion-toolbar class="toolbar-perfil">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+
+      👤 Mi Perfil
+
+    </ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
 
-  <ion-card>
+  <!-- Encabezado -->
+
+  <div class="header-perfil">
+
+    <img
+    
+ 
+  [src]="fotoPerfil"
+  class="foto-perfil">
+
+<ion-icon
+  *ngIf="!fotoPerfil"
+  name="person-circle"
+  class="avatar">
+</ion-icon>
+
+    <h2>{{ nombre }}</h2>
+
+    <p>{{ correo }}</p>
+
+  </div>
+
+  <!-- Información -->
+
+  <ion-card class="card-perfil">
 
     <ion-card-header>
+
       <ion-card-title>
-        {{ nombre }}
+
+        Información Personal
+
       </ion-card-title>
+
     </ion-card-header>
 
     <ion-card-content>
 
-      Correo:
-      {{ correo }}
+      <ion-item lines="none">
+
+        <ion-icon
+          slot="start"
+          name="person-outline">
+        </ion-icon>
+
+        <ion-label>
+
+          {{ nombre }}
+
+        </ion-label>
+
+      </ion-item>
+
+      <ion-item lines="none">
+
+        <ion-icon
+          slot="start"
+          name="mail-outline">
+        </ion-icon>
+
+        <ion-label>
+
+          {{ correo }}
+
+        </ion-label>
+
+      </ion-item>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- Acciones -->
+
+  <ion-card class="card-perfil">
+
+    <ion-card-header>
+
+      <ion-card-title>
+
+        Mi Cuenta
+
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-button
+
+        expand="block"
+
+        class="btn-foto"
+
+        (click)="tomarFoto()">
+
+        <ion-icon
+          slot="start"
+          name="camera-outline">
+        </ion-icon>
+
+        Cambiar Foto
+
+      </ion-button>
+
+      <ion-button
+
+        expand="block"
+
+        fill="outline"
+
+        color="medium"
+
+        routerLink="/productos">
+
+        <ion-icon
+          slot="start"
+          name="bag-outline">
+        </ion-icon>
+
+        Ir a Productos
+
+      </ion-button>
+
+      <ion-button
+
+        expand="block"
+
+        fill="outline"
+
+        color="medium"
+
+        routerLink="/carrito">
+
+        <ion-icon
+          slot="start"
+          name="cart-outline">
+        </ion-icon>
+
+        Ir al Carrito
+
+      </ion-button>
 
     </ion-card-content>
 

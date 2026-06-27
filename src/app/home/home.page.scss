@@ -1,28 +1,119 @@
-.titulo {
-  text-align: center;
-  margin-bottom: 30px;
+ion-content{
+
+    --background:#F7F7F7;
+
 }
 
-.boton1 {
-  animation: subir 1s;
+.toolbar-home{
+
+    --background:#D88CA1;
+    color:white;
+
 }
 
-.boton2 {
-  animation: subir 2s;
+.banner{
+
+    background:linear-gradient(
+    135deg,
+    #D88CA1,
+    #F8DDE5);
+
+    color:white;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    border-bottom-left-radius:35px;
+
+    border-bottom-right-radius:35px;
+
 }
 
-.boton3 {
-  animation: subir 3s;
+.banner h1{
+
+    font-size:34px;
+
+    font-weight:bold;
+
 }
 
-@keyframes subir {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
+.banner p{
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    margin:15px 0;
+
+    font-size:17px;
+
+}
+
+.menu-home{
+
+    padding:20px;
+
+}
+
+.card-menu{
+
+    text-align:center;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    margin-bottom:20px;
+
+    transition:0.25s;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+
+}
+
+.card-menu:active{
+
+    transform:scale(.96);
+
+}
+
+.card-menu ion-icon{
+
+    font-size:60px;
+
+    color:#D88CA1;
+
+}
+
+.card-menu h2{
+
+    margin-top:10px;
+
+    color:#444;
+
+}
+
+.card-menu p{
+
+    color:#777;
+
+}
+
+.oferta{
+
+    margin:20px;
+
+    text-align:center;
+
+    background:#FFF0F5;
+
+    border-radius:20px;
+
+    color:#444;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.logout{
+
+    margin:25px;
+
 }

@@ -1,0 +1,102 @@
+ion-content{
+
+    --background:#F7F7F7;
+
+}
+
+.toolbar-login{
+
+    --background:#D88CA1;
+    color:white;
+
+}
+
+/* Contenedor */
+
+.login-container{
+
+    padding:35px 25px 50px;
+
+    max-width:450px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+/* Logo */
+
+.logo{
+
+    font-size:85px;
+
+    color:#D88CA1;
+
+    margin-top:20px;
+    margin-bottom:15px;
+
+}
+
+.login-container h1{
+
+    font-size:32px;
+
+    color:#444;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+.login-container p{
+
+    color:#777;
+
+    margin-bottom:25px;
+
+}
+
+/* Tarjeta */
+
+ion-card{
+
+    border-radius:22px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+/* Inputs */
+
+ion-item{
+
+    --background:#FFF;
+
+    --border-radius:12px;
+
+    margin-bottom:18px;
+
+}
+
+ion-icon{
+
+    color:#D88CA1;
+
+}
+
+/* Botón */
+
+.btn-login{
+
+    --background:#D88CA1;
+
+    --border-radius:15px;
+
+    font-weight:bold;
+
+    margin-top:20px;
+    margin-bottom:10px;
+
+}

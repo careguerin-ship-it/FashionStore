@@ -1,38 +1,123 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>FashionStore</ion-title>
+  <ion-toolbar class="toolbar-home">
+
+    <ion-title>
+          Bienvenid@ a tu tienda
+    </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
 
-  <h1 class="titulo">
-    Bienvenido a FashionStore
-  </h1>
+  <!-- Banner -->
 
-  <p>Tu tienda de ropa y zapatos.</p>
+  <div class="banner">
+
+    <h1>FashionStore</h1>
+
+    <p>
+      Descubre las últimas tendencias
+      para mujer y hombre.
+    </p>
+
+    <ion-button
+      color="light"
+      (click)="irProductos()">
+
+      Comprar Ahora
+
+    </ion-button>
+
+  </div>
+
+
+  <!-- Menú -->
+
+  <div class="menu-home">
+
+    <ion-card
+      class="card-menu"
+      (click)="irProductos()">
+
+      <ion-icon
+        name="shirt-outline">
+      </ion-icon>
+
+      <h2>Productos</h2>
+
+      <p>
+        Descubre nuestra colección.
+      </p>
+
+    </ion-card>
+
+
+    <ion-card
+      class="card-menu"
+      (click)="irCarrito()">
+
+      <ion-icon
+        name="cart-outline">
+      </ion-icon>
+
+      <h2>Mi Carrito</h2>
+
+      <p>
+        Revisa tus productos.
+      </p>
+
+    </ion-card>
+
+
+    <ion-card
+      class="card-menu"
+      (click)="irPerfil()">
+
+      <ion-icon
+        name="person-circle-outline">
+      </ion-icon>
+
+      <h2>Mi Perfil</h2>
+
+      <p>
+        Gestiona tu cuenta.
+      </p>
+
+    </ion-card>
+
+  </div>
+
+
+  <!-- Oferta -->
+
+  <ion-card class="oferta">
+
+    <h2>🔥 Oferta de la Semana</h2>
+
+    <p>
+
+      Hasta un <strong>40% OFF</strong>
+
+      en prendas seleccionadas.
+
+    </p>
+
+  </ion-card>
+
 
   <ion-button
-    class="boton1"
-    expand="block"
-    routerLink="/productos">
-    Ver Productos
-  </ion-button>
 
-  <ion-button
-    class="boton2"
-    expand="block"
-    color="success"
-    routerLink="/carrito">
-    Mi Carrito
-  </ion-button>
+      expand="block"
 
-  <ion-button
-    class="boton3"
-    expand="block"
-    color="tertiary"
-    routerLink="/perfil">
-    Mi Perfil
+      color="danger"
+
+      class="logout"
+
+      (click)="cerrarSesion()">
+
+      Cerrar Sesión
+
   </ion-button>
 
 </ion-content>
